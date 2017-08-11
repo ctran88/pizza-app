@@ -1,0 +1,49 @@
+﻿@model Pizza_App.ViewModel.OrderViewModel
+@{
+    ViewBag.Title = "Order now!";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Order "The One" here!</h2>
+
+<div id="order-form-wrapper" ng-controller="FormController">
+    <form name="order-form" ng-submit="submitOrder()">
+        @Html.ValidationSummary(true)
+
+        <label for="input-first-name">First name:</label>
+        <input id="input-first-name" type="text" ng-model="order.firstName" />
+        @Html.ValidationMessageFor(model => model.CustomerOrder.FirstName)
+
+        <label for="input-last-name">Last name:</label>
+        <input id="input-last-name" type="text" ng-model="order.lastName" />
+        @Html.ValidationMessageFor(model => model.CustomerOrder.LastName)
+
+        <label for="input-phone-number">Phone number:</label>
+        <input id="input-phone-number" type="tel" ng-model="order.phoneNumber" />
+        @Html.ValidationMessageFor(model => model.CustomerOrder.PhoneNumber)
+
+        <label for="input-pizza-type">Pizza type:</label>
+        <select id="input-pizza-type" ng-model="order.pizzaType" >
+            <option ng-repeat="type in pizzaTypes" value="{{ option.Id }}">{{ option.Type }}</option>
+        </select>
+        @Html.ValidationMessageFor(model => model.CustomerOrder.PizzaType)
+
+        <label for="input-quantity">Quantity:</label>
+        <input id="input-quantity" type="number" ng-model="order.quantity" />
+        @Html.ValidationMessageFor(model => model.CustomerOrder.Quantity)
+
+        <label for="input-delivery-date">Delivery date:</label>
+        <input id="input-delivery-date" type="date" ng-model="date" />
+        @Html.ValidationMessageFor(model => model.CustomerOrder.DeliveryDate)
+
+        <label for="input-delivery-time">Delivery time:</label>
+        <input id="input-delivery-time" type="time" ng-model="time" />
+        @Html.ValidationMessageFor(model => model.CustomerOrder.DeliveryDate)
+
+        <label for="field-total-cost">Total cost:</label>
+        <input id="field-total-cost" type="number" ng-model="order.totalCost" />
+        @Html.ValidationMessageFor(model => model.CustomerOrder.TotalCost)
+
+        <input id="submit" type="submit" value="Submit order" />
+    </form>
+</div>

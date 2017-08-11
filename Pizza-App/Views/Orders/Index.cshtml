@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Order history";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="order-history-table" ng-controller="OrdersController">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Phone number</th>
+            <th>Pizza type</th>
+            <th>Pizza price</th>
+            <th>Quantity</th>
+            <th>Delivery date</th>
+            <th>Total cost</th>
+        </tr>
+        <tbody data-ng-repeat="order in orders">
+            <tr>
+                <td>{{ order.Id }}</td>
+                <td>{{ order.FirstName }}</td>
+                <td>{{ order.LastName }}</td>
+                <td>{{ order.PhoneNumber }}</td>
+                <td>{{ order.PizzaType.Type }}</td>
+                <td>{{ order.PizzaType.Price }}</td>
+                <td>{{ order.Quantity }}</td>
+                <td>{{ order.DeliveryDate }}</td>
+                <td>{{ order.TotalCost }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
