@@ -15,8 +15,7 @@ namespace Pizza_App.Models
         public string Type { get; set; }
 
         [Required]
-        [Range(1, int.MaxValue)]
         [DataType(DataType.Currency)]
-        public float Price { get; set; }
+        public decimal Price { get; set; }
     }
 }

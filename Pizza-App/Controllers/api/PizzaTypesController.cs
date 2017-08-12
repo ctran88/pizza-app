@@ -10,7 +10,7 @@ namespace Pizza_App.Controllers.Api
 {
     public class PizzaTypesController : ApiController
     {
-        private Pizza_AppDb db = new Pizza_AppDb();
+        private AceOfSpadesDb db = new AceOfSpadesDb();
 
 		protected override void Dispose(bool disposing)
 		{

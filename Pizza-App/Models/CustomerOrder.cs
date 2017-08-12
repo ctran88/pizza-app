@@ -32,7 +32,7 @@ namespace Pizza_App.Models
 
         [Required]
         [DataType(DataType.Currency)]
-        public float TotalCost
+        public decimal TotalCost
         {
             get
             {
