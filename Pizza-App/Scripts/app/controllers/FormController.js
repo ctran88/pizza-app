@@ -2,6 +2,8 @@
     getPizzas();
 
     $scope.pizza = '';
+    $scope.date = '';
+    $scope.time = '';
     $scope.order = {
         FirstName: '',
         LastName: '',
@@ -24,6 +26,8 @@
     }
 
     $scope.submitOrder = function () {
+        combineDateTime();
+
         var serviceCall = ApiService.postOrders($scope.order);
         serviceCall
             .then(function (result) {
@@ -34,6 +38,11 @@
                 alert(error.data);
             });
     };
+
+    function combineDateTime() {
+        $scope.order.DeliveryDate = new Date($scope.date.getFullYear(), $scope.date.getMonth(), $scope.date.getDate(),
+                                             $scope.time.getHours(), $scope.time.getMinutes(), $scope.time.getSeconds());
+    }
 
     function getPizzas() {
         var serviceCall = ApiService.getPizzas();

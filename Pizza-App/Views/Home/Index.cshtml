@@ -80,24 +80,40 @@
                             </div>
                         </md-input-container>
 
-                        <md-input-container>
-                            <label>Delivery date</label>
-                            <md-datepicker
-                                name="deliveryDate"
-                                md-min-date="minDate"
-                                md-date-filter="onlyTodayForward"
-                                ng-model="order.DeliveryDate"
-                                required
-                                md-no-asterisk></md-datepicker>
-                            <div ng-messages="orderForm.deliveryDate.$error">
-                                <div ng-message="valid">Invalid date format, must be (MM/DD/YYYY).</div>
-                                <div ng-message="required">Required.</div>
-                                <div ng-message="mindate">Date is too early.</div>
-                            </div>
-                        </md-input-container>
+                        <div layout="row">
+                            <md-input-container>
+                                <label>Delivery date</label>
+                                <md-datepicker name="date"
+                                               md-min-date="minDate"
+                                               md-date-filter="onlyTodayForward"
+                                               ng-model="date"
+                                               required
+                                               md-no-asterisk></md-datepicker>
+                                <div ng-messages="orderForm.date.$error">
+                                    <div ng-message="valid">Invalid date format, must be (MM/DD/YYYY).</div>
+                                    <div ng-message="required">Required.</div>
+                                    <div ng-message="mindate">Date is too early.</div>
+                                </div>
+                            </md-input-container>
 
-                        <label for="field-total-cost">Total cost:</label>
-                        <span id="field-total-cost">${{ (order.TotalCost.toFixed(2)) }}</span>
+                            <md-icon class="material-icons" style="margin-top:24px;margin-right:24px;">access_time</md-icon>
+                            <md-input-container style="margin-right:24px;">
+                                <label>Delivery time</label>
+                                <input name="time"
+                                       type="time"
+                                       ng-model="time"
+                                       required
+                                       md-no-asterisk />
+                                <div ng-messages="orderForm.time.$error">
+                                    <div ng-message="required">Required.</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+
+                        <div layout="row" layout-align="space-between center">
+                            <label for="field-total-cost">Total cost:</label>
+                            <strong id="field-total-cost">${{ (order.TotalCost.toFixed(2)) }}</strong>
+                        </div>
 
                         <md-button class="md-raised md-primary" type="submit">Submit order</md-button>
 
