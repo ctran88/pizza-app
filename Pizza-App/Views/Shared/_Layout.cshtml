@@ -6,17 +6,17 @@
         @Styles.Render("~/bundles/css")
 	</head>
     <body ng-app="PizzaApp">
-	    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-            <md-nav-item md-nav-href="/" name="home">Ace of Spades Pizza</md-nav-item>
-            <md-nav-item md-nav-href="/orders" name="orders">Order history</md-nav-item>
-        </md-nav-bar>
+	    <md-toolbar class="md-whiteframe-1dp md-secondary" layout="row" style="background:#222;">
+            <md-button ng-href="/" name="home">Ace of Spades Pizza</md-button>
+            <md-button ng-href="/orders" name="orders">Order history</md-button>
+        </md-toolbar>
 
         <div class="container body-content">
             @RenderBody()
             
             <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - Ace of Spades Pizza</p>
+            <footer layout="row" layout-align="center">
+                <p>&copy; @DateTime.Now.Year Ace of Spades Pizza</p>
             </footer>
         </div>
 
@@ -25,5 +25,6 @@
         <script src="~/Scripts/vendor/angular-material.min.js"></script>
         <script src="~/Scripts/vendor/angular-animate.min.js"></script>
         <script src="~/Scripts/vendor/angular-aria.min.js"></script>
+        <script src="~/Scripts/vendor/angular-messages.min.js"></script>
 	</body>
 </html>

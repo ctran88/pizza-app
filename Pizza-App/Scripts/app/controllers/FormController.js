@@ -1,10 +1,7 @@
 ﻿angular.module('app.controllers').controller('FormController', ['$scope', '$log', 'ApiService', function ($scope, $log, ApiService) {
     getPizzas();
 
-    var today = new Date;
-    $scope.minDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, -8);
     $scope.pizza = '';
-
     $scope.order = {
         FirstName: '',
         LastName: '',
@@ -19,6 +16,12 @@
         $scope.order.PizzaId = $scope.pizza.PizzaId;
         $scope.order.TotalCost = $scope.order.Quantity * $scope.pizza.Price || 0;
     });
+
+    $scope.onlyTodayForward = function (date) {
+        var yesterday = Date.now() - 86400000;
+
+        return date > yesterday;
+    }
 
     $scope.submitOrder = function () {
         var serviceCall = ApiService.postOrders($scope.order);

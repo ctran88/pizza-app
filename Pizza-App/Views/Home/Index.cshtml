@@ -4,49 +4,103 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Order "The One" here!</h2>
+<md-content>
+    <div id="orderForm-wrapper" ng-controller="FormController">
+        <md-card flex-offset="25" style="width:50%;">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Order "The One" here!</span>
+                </md-card-title-text>
+            </md-card-title>
+            <form name="orderForm" ng-submit="submitOrder()">
+                <div layout="column" layout-padding>
 
-<md-content layout-padding>
-    <div id="order-form-wrapper" ng-controller="FormController">
-        <md-card>
-            <form name="order-form" ng-submit="submitOrder()">
-                <div layout="column">
-                    <md-input-container>
-                        <label>First name</label>
-                        <input ng-model="order.FirstName" />
-                    </md-input-container>
+                        <md-input-container>
+                            <label>First name</label>
+                            <input
+                                name="firstName"
+                                ng-model="order.FirstName"
+                                required
+                                md-no-asterisk />
+                            <div ng-messages="orderForm.firstName.$error">
+                                <div ng-message="required">Required.</div>
+                            </div>
+                        </md-input-container>
 
-                    <md-input-container>
-                        <label>Last name</label>
-                        <input ng-model="order.LastName" />
-                    </md-input-container>
+                        <md-input-container>
+                            <label>Last name</label>
+                            <input
+                                name="lastName"
+                                ng-model="order.LastName"
+                                required
+                                md-no-asterisk />
+                            <div ng-messages="orderForm.lastName.$error">
+                                <div ng-message="required">Required.</div>
+                            </div>
+                        </md-input-container>
 
-                    <md-input-container>
-                        <label>Phone number</label>
-                        <input ng-model="order.PhoneNumber" />
-                    </md-input-container>
+                        <md-input-container>
+                            <label>Phone number</label>
+                            <input
+                                name="phoneNumber"
+                                ng-model="order.PhoneNumber"
+                                required
+                                md-no-asterisk />
+                            <div ng-messages="orderForm.phoneNumber.$error">
+                                <div ng-message="required">Required.</div>
+                            </div>
+                        </md-input-container>
 
-                    <md-input-container>
-                        <label>Pizza</label>
-                        <md-select ng-model="pizza">
-                            <md-option ng-repeat="pizza in pizzas" ng-value="pizza">{{ pizza.Type }}</md-option>
-                        </md-select>
-                    </md-input-container>
+                        <md-input-container>
+                            <label>Pizza</label>
+                            <md-select
+                                name="pizza"
+                                ng-model="pizza"
+                                required
+                                md-no-asterisk>
+                                <md-option ng-repeat="pizza in pizzas" ng-value="pizza">{{ pizza.Type }}</md-option>
+                            </md-select>
+                            <div ng-messages="orderForm.pizza.$error">
+                                <div ng-message="required">Required.</div>
+                            </div>
+                        </md-input-container>
 
-                    <md-input-container>
-                        <label>Quantity</label>
-                        <input ng-model="order.Quantity" />
-                    </md-input-container>
+                        <md-input-container>
+                            <label>Quantity</label>
+                            <input
+                                name="quantity"
+                                type="number"
+                                min="1"
+                                ng-model="order.Quantity"
+                                required
+                                md-no-asterisk />
+                            <div ng-messages="orderForm.quantity.$error">
+                                <div ng-message="required">Required.</div>
+                                <div ng-message="min">Must order at least 1 pizza.</div>
+                            </div>
+                        </md-input-container>
 
-                    <md-input-container>
-                        <label>Delivery date</label>
-                        <md-datepicker name="deliveryDate" md-min-date="FormController.minDate" ng-model="order.DeliveryDate"></md-datepicker>
-                    </md-input-container>
+                        <md-input-container>
+                            <label>Delivery date</label>
+                            <md-datepicker
+                                name="deliveryDate"
+                                md-min-date="minDate"
+                                md-date-filter="onlyTodayForward"
+                                ng-model="order.DeliveryDate"
+                                required
+                                md-no-asterisk></md-datepicker>
+                            <div ng-messages="orderForm.deliveryDate.$error">
+                                <div ng-message="valid">Invalid date format, must be (MM/DD/YYYY).</div>
+                                <div ng-message="required">Required.</div>
+                                <div ng-message="mindate">Date is too early.</div>
+                            </div>
+                        </md-input-container>
 
-                    <label for="field-total-cost">Total cost:</label>
-                    <span id="field-total-cost">${{ (order.TotalCost.toFixed(2)) }}</span>
+                        <label for="field-total-cost">Total cost:</label>
+                        <span id="field-total-cost">${{ (order.TotalCost.toFixed(2)) }}</span>
 
-                    <md-button class="md-raised md-primary" type="submit">Submit order</md-button>
+                        <md-button class="md-raised md-primary" type="submit">Submit order</md-button>
+
                 </div>
             </form>
         </md-card>
