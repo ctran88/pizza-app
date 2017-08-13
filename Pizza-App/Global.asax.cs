@@ -7,6 +7,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
+using System.Web.Optimization;
 
 namespace Pizza_App
 {
@@ -19,6 +20,7 @@ namespace Pizza_App
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            BundleConfig.RegisterScriptBundles(BundleTable.Bundles);
         }
     }
 }

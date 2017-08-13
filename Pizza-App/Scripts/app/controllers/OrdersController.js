@@ -4,10 +4,10 @@
     function getAllOrders() {
         var serviceCall = ApiService.getOrders();
         serviceCall
-            .then(function(result) {
+            .then(function (result) {
                 $scope.orders = result.data;
             })
-            .catch(function(error) {
+            .catch(function (error) {
                 $log.error('There was an error retrieving the order data. ', error);
             });
     }
