@@ -11,31 +11,38 @@
         @Html.ValidationSummary(true)
 
         <label for="input-first-name">First name:</label>
-        <input id="input-first-name" type="text" ng-model="order.firstName" required />
+        <input id="input-first-name" type="text" ng-model="order.FirstName" required />
         @Html.ValidationMessageFor(model => model.CustomerOrder.FirstName)
+        <br />
 
         <label for="input-last-name">Last name:</label>
-        <input id="input-last-name" type="text" ng-model="order.lastName" required />
+        <input id="input-last-name" type="text" ng-model="order.LastName" required />
         @Html.ValidationMessageFor(model => model.CustomerOrder.LastName)
+        <br />
 
         <label for="input-phone-number">Phone number:</label>
-        <input id="input-phone-number" type="tel" ng-model="order.phoneNumber" required />
+        <input id="input-phone-number" type="tel" ng-model="order.PhoneNumber" required />
         @Html.ValidationMessageFor(model => model.CustomerOrder.PhoneNumber)
+        <br />
 
-        <label for="input-pizza-type">Pizza type:</label>
-        <select id="input-pizza-type" ng-model="order.pizzaType" ng-options="type.Type for type in pizzaTypes" required ></select>
-        @Html.ValidationMessageFor(model => model.CustomerOrder.PizzaType)
+        <label for="input-pizza-type">Pizza:</label>
+        <select id="input-pizza-type" ng-model="pizza" ng-options="pizza.Type for pizza in pizzas" required ></select>
+        @Html.ValidationMessageFor(model => model.CustomerOrder.PizzaId)
+        <br />
 
         <label for="input-quantity">Quantity:</label>
-        <input id="input-quantity" type="number" ng-model="order.quantity" required />
+        <input id="input-quantity" type="number" ng-model="order.Quantity" required />
         @Html.ValidationMessageFor(model => model.CustomerOrder.Quantity)
+        <br />
 
         <label for="input-delivery-date">Delivery date:</label>
-        <input id="input-delivery-date" type="datetime-local" min="{{ minDate }}" ng-model="order.deliveryDate" required />
+        <input id="input-delivery-date" type="datetime-local" min="{{ minDate }}" ng-model="order.DeliveryDate" required />
         @Html.ValidationMessageFor(model => model.CustomerOrder.DeliveryDate)
+        <br />
 
         <label for="field-total-cost">Total cost:</label>
-        <span id="field-total-cost">${{ (order.totalCost.toFixed(2)) }}</span>
+        <span id="field-total-cost">${{ (order.TotalCost.toFixed(2)) }}</span>
+        <br />
 
         <input id="submit" type="submit" value="Submit order" />
     </form>

@@ -7,6 +7,6 @@ namespace Pizza_App.Models
     {
         public AceOfSpadesDb() : base("name = AceOfSpadesDb") { }
         public DbSet<CustomerOrder> CustomerOrders { get; set; }
-        public DbSet<PizzaType> PizzaTypes { get; set; }
+        public DbSet<Pizza> Pizzas { get; set; }
     }
 }

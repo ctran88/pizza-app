@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace Pizza_App.Controllers.Api
 {
-    public class PizzaTypesController : ApiController
+    public class PizzasController : ApiController
     {
         private AceOfSpadesDb db = new AceOfSpadesDb();
 
@@ -23,9 +23,9 @@ namespace Pizza_App.Controllers.Api
 		}
 
         [System.Web.Http.HttpGet]
-        public IEnumerable<PizzaType> Get()
+        public IEnumerable<Pizza> Get()
         {
-            var typeList = db.PizzaTypes.ToList();
+            var typeList = db.Pizzas.ToList();
             return typeList;
         }
     }

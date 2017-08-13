@@ -1,6 +1,6 @@
 ﻿angular.module('app.services').service('ApiService', function($http) {
-    this.getPizzaTypes = function() {
-        return $http.get('api/pizza-types');
+    this.getPizzas = function() {
+        return $http.get('api/pizzas');
     }
 
     this.getOrders = function() {

@@ -6,10 +6,10 @@ using System.Web;
 
 namespace Pizza_App.Models
 {
-    public class PizzaType
+    public class Pizza
     {
         [Key]
-        public int Id { get; set; }
+        public int PizzaId { get; set; }
 
         [Required]
         public string Type { get; set; }

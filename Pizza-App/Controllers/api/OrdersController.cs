@@ -30,12 +30,22 @@ namespace Pizza_App.Controllers.Api
         }
 
         [System.Web.Http.HttpPost]
-        public bool Post(CustomerOrder order)
+        public IHttpActionResult Post(CustomerOrder order)
         {
-            db.CustomerOrders.Add(order);
-            int saved = db.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                string result = "Order submitted successfully.";
+                db.CustomerOrders.Add(order);
+                db.SaveChanges();
+                
+                return Ok(result);
+            }
+            else
+            {
+                string error = "Invalid order submission.";
 
-            return saved > 0 ? true : false;
+                return Content(System.Net.HttpStatusCode.BadRequest, error); 
+            }
         }
     }
 }

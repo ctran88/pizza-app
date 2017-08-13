@@ -16,21 +16,15 @@ namespace Pizza_App
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                name: "GetPizzaTypes",
-                routeTemplate: "api/pizza-types",
-                defaults: new { controller = "PizzaTypes", action = "Get" }
+                name: "Pizzas",
+                routeTemplate: "api/pizzas",
+                defaults: new { controller = "Pizzas", action = "Get" }
             );
 
             config.Routes.MapHttpRoute(
-                name: "GetOrder",
+                name: "ApiOrders",
                 routeTemplate: "api/orders",
-                defaults: new { controller = "Orders", action = "Get" }
-            );
-
-            config.Routes.MapHttpRoute(
-                name: "PostOrder",
-                routeTemplate: "api/orders",
-                defaults: new { controller = "Orders", action = "Post" }
+                defaults: new { controller = "Orders" }
             );
         }
     }

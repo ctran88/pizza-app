@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -9,7 +10,7 @@ namespace Pizza_App.Models
     public class CustomerOrder
     {
         [Key]
-        public int Id { get; set; }
+        public int CustomerOrderId { get; set; }
 
         [Required]
         public string FirstName { get; set; }
@@ -18,10 +19,12 @@ namespace Pizza_App.Models
         public string LastName { get; set; }
 
         [Required]
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
+
+        public virtual Pizza Pizza { get; set; }
 
         [Required]
-        public PizzaType PizzaType { get; set; }
+        public int PizzaId { get; set; }
 
         [Required]
         [Range(1, int.MaxValue)]
@@ -32,17 +35,6 @@ namespace Pizza_App.Models
 
         [Required]
         [DataType(DataType.Currency)]
-        public decimal TotalCost
-        {
-            get
-            {
-                return Quantity * PizzaType.Price;
-            }
-
-            set
-            {
-
-            }
-        }
+        public decimal TotalCost { get; set; }
     }
 }

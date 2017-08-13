@@ -10,15 +10,15 @@ namespace Pizza_App.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(Pizza_App.Models.AceOfSpadesDb context)
         {
-            context.PizzaTypes.AddOrUpdate(t => t.Id,
-                new PizzaType
+            context.Pizzas.AddOrUpdate(t => t.PizzaId,
+                new Pizza
                 {
-                    Id = 001,
+                    PizzaId = 1,
                     Type = "The One",
                     Price = 9.99M
                 });
