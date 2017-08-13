@@ -7,7 +7,7 @@
         return $http.get('api/orders');
     }
 
-    this.postOrders = function(order) {
+    this.postOrders = function (order) {
         return $http.post('api/orders', order);
     }
 });

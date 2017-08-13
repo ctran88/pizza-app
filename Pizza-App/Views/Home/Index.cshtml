@@ -6,44 +6,49 @@
 
 <h2>Order "The One" here!</h2>
 
-<div id="order-form-wrapper" ng-controller="FormController">
-    <form name="order-form" ng-submit="submitOrder()">
-        @Html.ValidationSummary(true)
+<md-content layout-padding>
+    <div id="order-form-wrapper" ng-controller="FormController">
+        <md-card>
+            <form name="order-form" ng-submit="submitOrder()">
+                <div layout="column">
+                    <md-input-container>
+                        <label>First name</label>
+                        <input ng-model="order.FirstName" />
+                    </md-input-container>
 
-        <label for="input-first-name">First name:</label>
-        <input id="input-first-name" type="text" ng-model="order.FirstName" required />
-        @Html.ValidationMessageFor(model => model.CustomerOrder.FirstName)
-        <br />
+                    <md-input-container>
+                        <label>Last name</label>
+                        <input ng-model="order.LastName" />
+                    </md-input-container>
 
-        <label for="input-last-name">Last name:</label>
-        <input id="input-last-name" type="text" ng-model="order.LastName" required />
-        @Html.ValidationMessageFor(model => model.CustomerOrder.LastName)
-        <br />
+                    <md-input-container>
+                        <label>Phone number</label>
+                        <input ng-model="order.PhoneNumber" />
+                    </md-input-container>
 
-        <label for="input-phone-number">Phone number:</label>
-        <input id="input-phone-number" type="tel" ng-model="order.PhoneNumber" required />
-        @Html.ValidationMessageFor(model => model.CustomerOrder.PhoneNumber)
-        <br />
+                    <md-input-container>
+                        <label>Pizza</label>
+                        <md-select ng-model="pizza">
+                            <md-option ng-repeat="pizza in pizzas" ng-value="pizza">{{ pizza.Type }}</md-option>
+                        </md-select>
+                    </md-input-container>
 
-        <label for="input-pizza-type">Pizza:</label>
-        <select id="input-pizza-type" ng-model="pizza" ng-options="pizza.Type for pizza in pizzas" required ></select>
-        @Html.ValidationMessageFor(model => model.CustomerOrder.PizzaId)
-        <br />
+                    <md-input-container>
+                        <label>Quantity</label>
+                        <input ng-model="order.Quantity" />
+                    </md-input-container>
 
-        <label for="input-quantity">Quantity:</label>
-        <input id="input-quantity" type="number" ng-model="order.Quantity" required />
-        @Html.ValidationMessageFor(model => model.CustomerOrder.Quantity)
-        <br />
+                    <md-input-container>
+                        <label>Delivery date</label>
+                        <md-datepicker name="deliveryDate" md-min-date="FormController.minDate" ng-model="order.DeliveryDate"></md-datepicker>
+                    </md-input-container>
 
-        <label for="input-delivery-date">Delivery date:</label>
-        <input id="input-delivery-date" type="datetime-local" min="{{ minDate }}" ng-model="order.DeliveryDate" required />
-        @Html.ValidationMessageFor(model => model.CustomerOrder.DeliveryDate)
-        <br />
+                    <label for="field-total-cost">Total cost:</label>
+                    <span id="field-total-cost">${{ (order.TotalCost.toFixed(2)) }}</span>
 
-        <label for="field-total-cost">Total cost:</label>
-        <span id="field-total-cost">${{ (order.TotalCost.toFixed(2)) }}</span>
-        <br />
-
-        <input id="submit" type="submit" value="Submit order" />
-    </form>
-</div>
+                    <md-button class="md-raised md-primary" type="submit">Submit order</md-button>
+                </div>
+            </form>
+        </md-card>
+    </div>
+</md-content>

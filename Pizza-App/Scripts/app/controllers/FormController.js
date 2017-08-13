@@ -10,7 +10,7 @@
         LastName: '',
         PhoneNumber: '',
         PizzaId: '',
-        Quantity: 1,
+        Quantity: '',
         DeliveryDate: '',
         TotalCost: ''
     };
