@@ -1,6 +1,8 @@
 ﻿angular.module('app.controllers').controller('FormController', ['$scope', '$log', 'ApiService', function ($scope, $log, ApiService) {
     getPizzas();
 
+    $scope.submitted = false;
+    $scope.submitStatus = '';
     $scope.pizza = '';
     $scope.date = '';
     $scope.time = '';
@@ -40,13 +42,14 @@
         }
 
         var serviceCall = ApiService.postOrders($scope.order);
+        $scope.submitted = true;
+
         serviceCall
             .then(function (result) {
-                $scope.success = result.data;
-                alert('submitted successfully', result);
+                $scope.submitStatus = 'Your order has been submitted successfully!';
             })
             .catch(function (error) {
-                alert(error.data);
+                $scope.submitStatus = 'There was an error submitting your order.';
             });
     };
 

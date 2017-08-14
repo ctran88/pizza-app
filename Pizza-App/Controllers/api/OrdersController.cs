@@ -25,7 +25,10 @@ namespace Pizza_App.Controllers.Api
         [System.Web.Http.HttpGet]
         public IEnumerable<CustomerOrder> Get()
         {
-            var orderList = db.CustomerOrders.ToList();
+            var orderList = db.CustomerOrders
+                              .OrderByDescending(o => o.CustomerOrderId)
+                              .ToList();
+
             return orderList;
         }
 

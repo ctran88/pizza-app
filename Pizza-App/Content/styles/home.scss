@@ -1,4 +1,7 @@
-﻿#orderForm-wrapper {
+﻿.orderForm-wrapper {
+    md-card {
+        margin-top: 5%;
+    }
     .form-title {
         text-align: center;
     }
@@ -9,5 +12,11 @@
         margin-top: 24px;
         margin-right: 24px;
         margin-left: 24px;
+    }
+    .total-cost .total-cost-value {
+        margin-left: 24px;
+    }
+    .submitted-dialog {
+        margin-top: 15%;
     }
 }
