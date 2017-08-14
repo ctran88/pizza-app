@@ -15,18 +15,14 @@
 
         <div class="container body-content">
             @RenderBody()
-            
-            <hr />
-            <footer layout="row" layout-align="center">
-                <p>&copy; @DateTime.Now.Year Ace of Spades Pizza</p>
-            </footer>
         </div>
 
-        @Scripts.Render("~/bundles/app")
+        <hr />
+        <footer layout="row" layout-align="center">
+            <p>&copy; @DateTime.Now.Year Ace of Spades Pizza</p>
+        </footer>
 
-        <script src="~/Scripts/vendor/angular-material.min.js"></script>
-        <script src="~/Scripts/vendor/angular-animate.min.js"></script>
-        <script src="~/Scripts/vendor/angular-aria.min.js"></script>
-        <script src="~/Scripts/vendor/angular-messages.min.js"></script>
+        @Scripts.Render("~/bundles/app")
+        @Scripts.Render("~/bundles/vendor")
 	</body>
 </html>

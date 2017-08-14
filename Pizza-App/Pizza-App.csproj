@@ -124,13 +124,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\angular-material.css" />
-    <Content Include="Content\angular-material.layout-attributes.css" />
-    <Content Include="Content\angular-material.layout-attributes.min.css" />
-    <Content Include="Content\angular-material.layouts.css" />
-    <Content Include="Content\angular-material.layouts.ie_fixes.css" />
-    <Content Include="Content\angular-material.layouts.min.css" />
-    <Content Include="Content\angular-material.min.css" />
+    <Content Include="Content\styles\home.css">
+      <DependentUpon>home.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\home.min.css">
+      <DependentUpon>home.css</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\layout.css">
+      <DependentUpon>layout.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\layout.min.css">
+      <DependentUpon>layout.css</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\orders.css">
+      <DependentUpon>orders.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\styles\orders.min.css">
+      <DependentUpon>orders.css</DependentUpon>
+    </Content>
+    <Content Include="Content\vendor\angular-material.css" />
+    <Content Include="Content\vendor\angular-material.layout-attributes.css" />
+    <Content Include="Content\vendor\angular-material.layout-attributes.min.css" />
+    <Content Include="Content\vendor\angular-material.layouts.css" />
+    <Content Include="Content\vendor\angular-material.layouts.ie_fixes.css" />
+    <Content Include="Content\vendor\angular-material.layouts.min.css" />
+    <Content Include="Content\vendor\angular-material.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\vendor\angular-messages.js" />
     <Content Include="Scripts\vendor\angular-messages.min.js" />
@@ -142,8 +160,8 @@
     <Content Include="Scripts\vendor\angular-material.js" />
     <Content Include="Scripts\vendor\angular-material.min.js" />
     <Content Include="Scripts\vendor\angular-mocks.js" />
-    <Content Include="Scripts\vendor\angular.js" />
-    <Content Include="Scripts\vendor\angular.min.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\app\controllers\IndexController.js" />
     <Content Include="Scripts\app\controllers\OrdersController.js" />
     <Content Include="Scripts\app\controllers\FormController.js" />
@@ -174,7 +192,7 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Scripts\vendor\angular.min.js.map" />
+    <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
@@ -183,6 +201,13 @@
     <Content Include="Scripts\vendor\angular-animate.min.js.map" />
     <Content Include="Scripts\vendor\angular-aria.min.js.map" />
     <Content Include="Scripts\vendor\angular-messages.min.js.map" />
+    <Content Include="Content\styles\orders.scss" />
+    <Content Include="Content\styles\home.scss" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="Content\styles\layout.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

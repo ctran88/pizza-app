@@ -25,8 +25,19 @@
         return date > yesterday;
     }
 
-    $scope.submitOrder = function () {
-        combineDateTime();
+    $scope.submitOrder = function (form) {
+        var valid = checkDeliveryDateTime();
+
+        if (valid) {
+            form.time.$error.mintime = false;
+            form.time.$invalid = false;
+            form.time.$valid = true;
+        } else {
+            form.time.$error.mintime = true;
+            form.time.$invalid = true;
+            form.time.$valid = false;
+            return;
+        }
 
         var serviceCall = ApiService.postOrders($scope.order);
         serviceCall
@@ -39,9 +50,11 @@
             });
     };
 
-    function combineDateTime() {
+    function checkDeliveryDateTime() {
         $scope.order.DeliveryDate = new Date($scope.date.getFullYear(), $scope.date.getMonth(), $scope.date.getDate(),
                                              $scope.time.getHours(), $scope.time.getMinutes(), $scope.time.getSeconds());
+
+        return $scope.order.DeliveryDate > new Date();
     }
 
     function getPizzas() {

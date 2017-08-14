@@ -3,31 +3,37 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div id="order-history-table" ng-controller="OrdersController">
+<md-card id="orderHistory-wrapper" ng-controller="OrdersController" layout-padding>
+    <md-card-title class="table-title">
+        <md-card-title-text>
+            <span class="md-headline">Order history</span>
+        </md-card-title-text>
+    </md-card-title>
+
     <table>
-        <tr>
-            <th>ID</th>
-            <th>First name</th>
-            <th>Last name</th>
+        <tr align="right">
+            <th>Id</th>
+            <th align="left">First name</th>
+            <th align="left">Last name</th>
             <th>Phone number</th>
-            <th>Pizza type</th>
+            <th align="left">Pizza type</th>
             <th>Pizza price</th>
             <th>Quantity</th>
-            <th>Delivery date</th>
+            <th align="left">Delivery date</th>
             <th>Total cost</th>
         </tr>
         <tbody data-ng-repeat="order in orders">
-            <tr>
-                <td>{{ order.CustomerOrderId }}</td>
-                <td>{{ order.FirstName }}</td>
-                <td>{{ order.LastName }}</td>
-                <td>{{ order.PhoneNumber }}</td>
-                <td>{{ order.Pizza.Type }}</td>
-                <td>{{ order.Pizza.Price }}</td>
-                <td>{{ order.Quantity }}</td>
-                <td>{{ order.DeliveryDate }}</td>
-                <td>{{ order.TotalCost }}</td>
+            <tr align="right">
+                <td ng-bind="order.CustomerOrderId"></td>
+                <td ng-bind="order.FirstName" align="left"></td>
+                <td ng-bind="order.LastName" align="left"></td>
+                <td ng-bind="order.PhoneNumber"></td>
+                <td ng-bind="order.Pizza.Type" align="left"></td>
+                <td ng-bind="order.Pizza.Price"></td>
+                <td ng-bind="order.Quantity"></td>
+                <td ng-bind="order.DeliveryDate" align="left"></td>
+                <td ng-bind="order.TotalCost"></td>
             </tr>
         </tbody>
     </table>
-</div>
+</md-card>

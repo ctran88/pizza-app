@@ -1,0 +1,7 @@
+﻿.container.body-content {
+  text-align: center;
+  min-height: 100%; }
+  .container.body-content md-card {
+    display: inline-block;
+    text-align: initial; }
+
