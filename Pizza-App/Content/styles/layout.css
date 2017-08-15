@@ -1,7 +1,10 @@
-﻿.container.body-content {
+﻿body md-toolbar .button {
+  text-transform: none; }
+
+body .container.body-content {
   text-align: center;
   min-height: 100%; }
-  .container.body-content md-card {
+  body .container.body-content md-card {
     display: inline-block;
     text-align: initial; }
 

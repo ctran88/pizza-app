@@ -1,9 +1,16 @@
-﻿.container.body-content {
-    text-align: center;
-    min-height: 100%;
+﻿body {
+    md-toolbar {
+        .button {
+            text-transform: none;
+        }
+    }
+    .container.body-content {
+        text-align: center;
+        min-height: 100%;
 
-    md-card {
-        display: inline-block;
-        text-align: initial;
+        md-card {
+            display: inline-block;
+            text-align: initial;
+        }
     }
 }
